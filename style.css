@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-VariableFont_wdth,wght.ttf');
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    max-width: 1024px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.board, .row {
+    display: flex;
+}
+
+.board {
+    /* position: relative; */
+    flex-direction: column;
+    width: 50%;
+    aspect-ratio: 1/1;
+    justify-content: center;
+}
+
+.row {
+    flex-basis: 33.33%;
+    /* background-color: red; */
+}
+
+.square {
+    font-size: 4rem;
+    flex-basis: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+svg {
+    position: absolute;
+    display: none;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20rem;
+    width: 100%;
+    padding-bottom: 7rem;
+    font-size: 2rem;
+}
+
+#player-1-symbol, #player-2-symbol {
+    text-align: center;
+    border: none;
+    background-color: inherit;
+    font-size: 2rem;
+    z-index: 1;
+    padding-right: 0.25rem;
+    cursor: pointer;
+}
+
+.bt {
+    border-top: 1px solid black;
+}
+
+.bb {
+    border-bottom: 1px solid black;
+}
+
+.br {
+    border-right: 1px solid black;
+}
+
+.bl {
+    border-left: 1px solid black;
+}
+
+.win-hl::after {
+    content: '-';
+    z-index: 1;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <line id='line' x1="0" y1="0" x2="1000" y2="1000" style="stroke:red;stroke-width:12" />
+    </svg>
+    <div class="controls">
+        <div>
+            Player 1: <select id="player-1-symbol">
+                <option selected value="✖️">✖️</option>
+                <option value="🍔">🍔</option>
+                <option value="🐶">🐶</option>
+                <option value="❤️">❤️</option>
+                <option value="☀️">☀️</option>
+            </select>
+        </div>
+        <div>
+            Player 2: <select name="" id="player-2-symbol">
+                <option selected value="⭕">⭕</option>
+                <option value="🍕">🍕</option>
+                <option value="😺">😺</option>
+                <option value="♦️">♦️</option>
+                <option value="🌛">🌛</option>
+            </select>
+        </div>
+    </div>
+    <div class="board">
+        <div class="row">
+            <div class="square bb br"></div>
+            <div class="square bb"></div>
+            <div class="square bb bl"></div>
+        </div>
+        <div class="row">
+            <div class="win square br"></div>
+            <div class="square"></div>
+            <div class="square bl"></div>
+        </div>
+        <div class="row">
+            <div class="square bt br"></div>
+            <div class="square bt"></div>
+            <div class="square bt bl"></div>
+        </div>
+    </div>
+</body>
+</html>
