@@ -116,43 +116,34 @@ class Game {
     }
 
     drawWinningLine(square1, square2) {
-        let pos1 = square1.getBoundingClientRect(),  
-            pos2 = square2.getBoundingClientRect(),
-            posX1, posX2, posY1, posY2
-
-        if(pos1.top === pos2.top) {
-            // Horizontal Line
-            posX1 = (pos1.left + pos1.right)/2 - (pos1.width * .33)
-            posY1 = (pos1.top + pos1.bottom)/2
-            posX2 = (pos2.left + pos2.right)/2 + (pos1.width * .33)    
-            posY2 = (pos2.top + pos2.bottom)/2
-        } else if (pos1.left === pos2.left) {
-            // Vertical Line
-            posX1 = (pos1.left + pos1.right)/2
-            posY1 = (pos1.top + pos1.bottom)/2  - (pos1.height * .33)
-            posX2 = (pos2.left + pos2.right)/2    
-            posY2 = (pos2.top + pos2.bottom)/2  + (pos1.height * .33)
-        } else if (pos1.left < pos2.left) {
-            // Backslash Diagonal --- \
-            posX1 = (pos1.left + pos1.right)/2 - (pos1.width * .33)
-            posY1 = (pos1.top + pos1.bottom)/2 - (pos1.height * .33)
-            posX2 = (pos2.left + pos2.right)/2 + (pos1.width * .33)   
-            posY2 = (pos2.top + pos2.bottom)/2 + (pos1.height * .33)
-        } else {
-            // Forwardslash Diagonal --- /
-            posX1 = (pos1.left + pos1.right)/2 + (pos1.width * .33)
-            posY1 = (pos1.top + pos1.bottom)/2 - (pos1.height * .33)
-            posX2 = (pos2.left + pos2.right)/2 - (pos2.width * .33) 
-            posY2 = (pos2.top + pos2.bottom)/2 + (pos2.height * .33)
-        }
-
         let svg = document.querySelector('svg')
         let line = document.querySelector('#line')
         
-        line.setAttribute('x1', posX1)
-        line.setAttribute('x2', posX2)
-        line.setAttribute('y1', posY1)
-        line.setAttribute('y2', posY2)
+        if(square1.offsetTop === square2.offsetTop) {
+            // Horizontal Line
+            line.setAttribute('x1', square1.offsetLeft + (square1.offsetWidth / 2) - (square1.offsetWidth * .33))
+            line.setAttribute('x2', square2.offsetLeft + (square2.offsetWidth / 2) + (square2.offsetWidth * .33))
+            line.setAttribute('y1', square1.offsetTop + (square1.offsetHeight / 2))
+            line.setAttribute('y2', square2.offsetTop + (square2.offsetHeight / 2))
+        } else if (square1.offsetLeft === square2.offsetLeft) {
+            // Vertical Line
+            line.setAttribute('x1', square1.offsetLeft + (square1.offsetWidth / 2))
+            line.setAttribute('x2', square2.offsetLeft + (square2.offsetWidth / 2))
+            line.setAttribute('y1', square1.offsetTop + (square1.offsetHeight / 2) - (square1.offsetHeight * .33))
+            line.setAttribute('y2', square2.offsetTop + (square2.offsetHeight / 2) + (square2.offsetHeight * .33))
+        } else if (square1.offsetLeft < square2.offsetLeft) {
+            // Backslash Diagonal --- \
+            line.setAttribute('x1', square1.offsetLeft + (square1.offsetWidth / 2) - (square1.offsetWidth * .33))
+            line.setAttribute('x2', square2.offsetLeft + (square2.offsetWidth / 2) + (square2.offsetWidth * .33))
+            line.setAttribute('y1', square1.offsetTop + (square1.offsetHeight / 2) - (square1.offsetHeight * .33))
+            line.setAttribute('y2', square2.offsetTop + (square2.offsetHeight / 2) + (square2.offsetHeight * .33))
+        } else {
+            // Forwardslash Diagonal --- /
+            line.setAttribute('x1', square1.offsetLeft + (square1.offsetWidth / 2) + (square1.offsetWidth * .33))
+            line.setAttribute('x2', square2.offsetLeft + (square2.offsetWidth / 2) - (square2.offsetWidth * .33))
+            line.setAttribute('y1', square1.offsetTop + (square1.offsetHeight / 2) - (square1.offsetHeight * .33))
+            line.setAttribute('y2', square2.offsetTop + (square2.offsetHeight / 2) + (square2.offsetHeight * .33))
+        }
 
         svg.style = 'display: block;'
     }

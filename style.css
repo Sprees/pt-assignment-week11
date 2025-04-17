@@ -9,6 +9,10 @@
     box-sizing: border-box;    
 }
 
+html {
+    font-size: 16px;
+}
+
 body {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     margin: 0 auto;
@@ -25,9 +29,9 @@ body {
 }
 
 .board {
-    /* position: relative; */
+    position: relative;
     flex-direction: column;
-    width: 50%;
+    width: 60%;
     aspect-ratio: 1/1;
     justify-content: center;
 }
@@ -85,7 +89,41 @@ svg {
     border-left: 1px solid black;
 }
 
-.win-hl::after {
-    content: '-';
-    z-index: 1;
+@media (max-width: 799px) {
+    html {
+        font-size: 12px;
+    }
+
+    .controls {
+        gap: 18rem;
+    }   
+}
+
+@media (max-width: 599px) {
+    .board {
+        width: 75%;
+    }
+    .controls {
+        gap: 10rem;
+    }
+}
+
+@media (max-width: 469px) {
+    .html {
+        font-size: 10px;
+    }
+
+    .board {
+        width: 85%;
+    }
+
+    .controls {
+        gap: 5rem;
+    }
+}
+
+@media (max-width: 399px) {
+    html {
+        font-size: 8px;
+    }
 }
