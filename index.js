@@ -77,9 +77,14 @@ class GameControls {
 
     // When a round/game is over, remove player turn text.
     // replace with simple 'Game Over'
-    toggleGameOverText() {
-        this.gameOverP.classList.toggle('hide')
-        this.currentPlayerP.classList.toggle('hide')
+    toggleGameOverText(reset) {
+        if(reset) {
+            !this.gameOverP.classList.contains('hide') && this.gameOverP.classList.add('hide')
+            this.currentPlayerP.classList.contains('hide') && this.currentPlayerP.classList.remove('hide')
+        } else {
+            this.gameOverP.classList.toggle('hide')
+            this.currentPlayerP.classList.toggle('hide')
+        }
     }
 
 
@@ -282,7 +287,7 @@ class Game {
 
     handleResetBoard() {
         // set all aspects of board and controls (- wins) back to default
-        this.gameControls.toggleGameOverText()
+        this.gameControls.toggleGameOverText('reset')
         this.removeWinningLine()
         this.gameControls.hideResultsBanner()
         this.winner = ''
